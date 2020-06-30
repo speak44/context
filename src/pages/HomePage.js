@@ -1,25 +1,23 @@
 import React,{Component} from 'react'
-import Layout from './Layout'
+import store from '../store/'
 export default class HomePage extends Component{
   constructor(props){
     super(props)
   }
+  // componentDidMount(){
+  //   store.subscribe(()=>{
+  //     this.forceUpdate()
+  //   })
+  // }
+  // 或者 在index.js中注册
   render(){
+    console.log(store)
     return(
-      <Layout showTopBar={false} showBottmoBar={true} title={'这是首页'}>
-        {/* <div>
-          <p>HomePage........</p>
-        </div> */}
-        {
-          {
-            content:(<div>
-            <p>HomePage........</p>
-          </div>),
-          text:'这是文本',
-          btnclick:()=>{console.log('home点击')}
-          }
-        }
-      </Layout>
+        <div>
+          <h2>home</h2>
+          <div>{store.getState()}</div>
+          <button onClick={()=>store.dispatch({type:'ADD',num:'333'})}>add</button>
+          </div>
     )
   }
 }

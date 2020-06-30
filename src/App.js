@@ -1,10 +1,10 @@
 import React from 'react';
-import HomePage from './pages/HomePage'
+import ReactReduxPage from './pages/ReactReduxPage'
 function App() {
   return (
     <div className="App">
       <div>
-      <HomePage/>
+      <ReactReduxPage/>
       </div>
     </div>
   );

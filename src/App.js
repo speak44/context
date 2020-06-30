@@ -1,14 +1,10 @@
 import React from 'react';
-import ContextPage from './pages/ContextPage'
-import HocPage from './pages/HocPage'
-import LiftCycelPage from './pages/LiftCycelPage'
+import RouterPage from './pages/RouterPage'
 function App() {
   return (
     <div className="App">
       <div>
-        <ContextPage/>
-        <HocPage/>
-        <LiftCycelPage/>
+        <RouterPage/>
       </div>
     </div>
   );

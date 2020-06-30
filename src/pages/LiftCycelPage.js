@@ -15,8 +15,13 @@ export default class LiftCycePage extends Component{
   static propTypes={
     msg: PropTypes.string.isRequired
   }
-  UNSAFE_componentWillMount (){
-    console.log('执行顺序打印————————componentWillMount——————————')
+  // UNSAFE_componentWillMount (){
+  //   console.log('执行顺序打印————————componentWillMount——————————')
+  // }
+  static getDerivedStateFromProps(props, state){
+    console.log('执行顺序打印————————getDerivedStateFromProps——————————')
+    const {num} =state
+    return num==5? {num:0}:null;
   }
   componentDidMount(){
     console.log('执行顺序打印————————componentDidMount——————————')
@@ -27,11 +32,17 @@ export default class LiftCycePage extends Component{
     console.log(nextstate,'nextstate')
     return num!==3
   }
-  componentWillUpdate(){
-    console.log('执行顺序打印————————componentWillUpdate——————————')
+  getSnapshotBeforeUpdate(prevprosp,prevstate){
+    console.log('执行顺序打印————————getSnapshotBeforeUpdate——————————') 
+    console.log('prevstate',prevstate)
+    return {msg:'是getSnapshotBeforeUpdate'};
   }
-  componentDidUpdate(){
+  // UNSAFE_componentWillUpdate(){
+  //   console.log('执行顺序打印————————componentWillUpdate——————————')
+  // }
+  componentDidUpdate(prevprosp,prevstate,snapshot){
     console.log('执行顺序打印————————componentDidUpdate——————————')
+    console.log(prevprosp,prevstate,snapshot)
   }
   changenum=()=>{
     this.setState({
@@ -55,11 +66,11 @@ export default class LiftCycePage extends Component{
 }
 
 class Child extends Component{
-  componentWillReceiveProps(newprops){
-    // 父组穿进来的参数改变就执行
-    console.log('执行顺序打印————————child-componentWillReceiveProps————————')
-    console.log('child-newprops',newprops)
-  }
+  // UNSAFE_componentWillReceiveProps(newprops){
+  //   // 父组穿进来的参数改变就执行
+  //   console.log('执行顺序打印————————child-componentWillReceiveProps————————')
+  //   console.log('child-newprops',newprops)
+  // }
   componentWillUnmount(){
     console.log('执行顺序打印————————child-componentWillUnmount————————')
   }

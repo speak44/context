@@ -38,4 +38,8 @@ code {
   text-align: center;
   line-height: 16px;
 }
-
+button{
+  /* width: px; */
+  height: 20px;
+  border: 1px solid #000000;
+}

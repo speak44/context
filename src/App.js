@@ -1,10 +1,10 @@
 import React from 'react';
-import HomePage from './pages/HomePage'
+import ReaduxPage from './pages/ReaduxPage'
 function App() {
   return (
     <div className="App">
       <div>
-      <HomePage/>
+      <ReaduxPage/>
       </div>
     </div>
   );
